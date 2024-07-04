@@ -4,7 +4,7 @@ import {
   getComponentByTagName,
   RNWidget,
   RNProps,
-  RNComponent
+  RNComponent,
 } from "../components/config";
 
 export type AppContainer = Set<QWidget<any>>;
@@ -25,24 +25,25 @@ const HostConfig: Reconciler.HostConfig<
   any,
   any,
   any,
+  any,
   any
 > = {
   now: Date.now,
-  getRootHostContext: function(nextRootInstance) {
+  getRootHostContext: function (nextRootInstance) {
     let context = {
-      name: "rootnode"
+      name: "rootnode",
     };
     return context;
   },
-  getChildHostContext: function(parentContext, fiberType, rootInstance) {
+  getChildHostContext: function (parentContext, fiberType, rootInstance) {
     const { getContext } = getComponentByTagName(fiberType);
     return getContext(parentContext, rootInstance);
   },
-  shouldSetTextContent: function(type, nextProps) {
+  shouldSetTextContent: function (type, nextProps) {
     const { shouldSetTextContent } = getComponentByTagName(type);
     return shouldSetTextContent(nextProps);
   },
-  createTextInstance: function(
+  createTextInstance: function (
     newText,
     rootContainerInstance,
     context,
@@ -54,7 +55,7 @@ const HostConfig: Reconciler.HostConfig<
     );
     console.warn(`Use <Text /> component to add the text: ${newText}`);
   },
-  createInstance: function(
+  createInstance: function (
     type,
     newProps,
     rootContainerInstance,
@@ -75,7 +76,7 @@ const HostConfig: Reconciler.HostConfig<
     }
     parent.appendInitialChild(child);
   },
-  finalizeInitialChildren: function(
+  finalizeInitialChildren: function (
     instance,
     type,
     newProps,
@@ -90,17 +91,18 @@ const HostConfig: Reconciler.HostConfig<
       context
     );
   },
-  prepareForCommit: function(rootNode) {
+  prepareForCommit: function (rootNode): Record<string, any> | null {
+    // noop
+    return null;
+  },
+  resetAfterCommit: function (rootNode) {
     // noop
   },
-  resetAfterCommit: function(rootNode) {
-    // noop
-  },
-  commitMount: function(instance, type, newProps, internalInstanceHandle) {
+  commitMount: function (instance, type, newProps, internalInstanceHandle) {
     const { commitMount } = getComponentByTagName(type);
     return commitMount(instance, newProps, internalInstanceHandle);
   },
-  appendChildToContainer: function(container, child: QWidget<any>) {
+  appendChildToContainer: function (container, child: QWidget<any>) {
     container.add(child);
   },
   insertInContainerBefore: (container, child, beforeChild) => {
@@ -112,7 +114,7 @@ const HostConfig: Reconciler.HostConfig<
       child.close();
     }
   },
-  prepareUpdate: function(
+  prepareUpdate: function (
     instance,
     type,
     oldProps,
@@ -129,7 +131,7 @@ const HostConfig: Reconciler.HostConfig<
       hostContext
     );
   },
-  commitUpdate: function(
+  commitUpdate: function (
     instance,
     updatePayload,
     type,
@@ -176,28 +178,29 @@ const HostConfig: Reconciler.HostConfig<
       "commitTextUpdate called when platform doesnt have host level text"
     );
   },
-  resetTextContent: instance => {
+  resetTextContent: (instance) => {
     console.warn("resetTextContent in reconciler triggered!");
     // noop for now till we find when this method is triggered
   },
   supportsMutation: true,
   supportsPersistence: false,
   supportsHydration: false,
-  getPublicInstance: instance => {
+  getPublicInstance: (instance) => {
     //for supporting refs
     return instance;
   },
-  shouldDeprioritizeSubtree: (type, props) => {
-    // Use to deprioritize entire subtree based on props and types. For example if you dont need reconciler to calculate for hidden elements
-    if ((props as any).visible === false) {
-      return true;
-    }
-    return false;
-  },
+  // shouldDeprioritizeSubtree: (type, props) => {
+  //   // Use to deprioritize entire subtree based on props and types. For example if you dont need reconciler to calculate for hidden elements
+  //   if ((props as any).visible === false) {
+  //     return true;
+  //   }
+  //   return false;
+  // },
   //@ts-ignore
   hideInstance: (instance: QWidget<any>) => {
     instance.hide();
   },
+  //@ts-ignore
   unhideInstance: (instance: QWidget<any>, Props: RNProps) => {
     instance.show();
   },
@@ -216,7 +219,7 @@ const HostConfig: Reconciler.HostConfig<
   scheduleTimeout: setTimeout,
   cancelTimeout: clearTimeout,
   noTimeout: -1,
-  isPrimaryRenderer: true
+  isPrimaryRenderer: true,
 };
 
 export default Reconciler(HostConfig);
