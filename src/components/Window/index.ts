@@ -1,5 +1,6 @@
 import { registerComponent, ComponentConfig } from "../config";
 import { Fiber } from "react-reconciler";
+import React from 'react'
 import { WindowProps, RNWindow } from "./RNWindow";
 import { AppContainer } from "../../reconciler";
 
@@ -47,4 +48,4 @@ class WindowConfig extends ComponentConfig {
   }
 }
 
-export const Window = registerComponent<WindowProps>(new WindowConfig());
+export const Window = registerComponent<WindowProps  & { children?: React.ReactNode }>(new WindowConfig());
