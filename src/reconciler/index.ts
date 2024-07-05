@@ -98,6 +98,7 @@ const HostConfig: Reconciler.HostConfig<
   resetAfterCommit: function (rootNode) {
     // noop
   },
+  clearContainer: function (container) {},
   commitMount: function (instance, type, newProps, internalInstanceHandle) {
     const { commitMount } = getComponentByTagName(type);
     return commitMount(instance, newProps, internalInstanceHandle);
