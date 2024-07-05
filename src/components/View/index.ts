@@ -1,6 +1,7 @@
 import { registerComponent, ComponentConfig } from "../config";
 import { Fiber } from "react-reconciler";
 import { RNView, ViewProps } from "./RNView";
+import React from 'react'
 import { AppContainer } from "../../reconciler";
 import { QWidgetSignals } from "@nodegui/nodegui";
 class ViewConfig extends ComponentConfig {
@@ -39,6 +40,6 @@ class ViewConfig extends ComponentConfig {
   }
 }
 
-export const View = registerComponent<ViewProps<QWidgetSignals>>(
+export const View = registerComponent<ViewProps<QWidgetSignals  & { children?: React.ReactNode }>>(
   new ViewConfig()
 );
