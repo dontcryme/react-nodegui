@@ -1,6 +1,6 @@
 # React NodeGui
 
-⚠️ React NodeGui is no longer maintained. Please fork it to continue development ⚠️ 
+~~⚠️ React NodeGui is no longer maintained. Please fork it to continue development ⚠️~~
 <br/>
 
 [![Join the NodeGUI community on Spectrum](https://withspectrum.github.io/badge/badge.svg)](https://spectrum.chat/nodegui)
