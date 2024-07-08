@@ -31,6 +31,6 @@
     "includeVersion": true,
     "hideBreadcrumbs": true,
     "disableSources": true,
-    "theme": "docusaurus2"
+    "theme": "default"
   }
 }
