@@ -13,7 +13,7 @@
   "include": ["./src/**/*"],
   "exclude": ["dist"],
   "typedocOptions": {
-    "mode": "file",
+    "entryPoints": ["./src"],
     "out": "./website/docs/api",
     "plugin": ["typedoc-plugin-markdown"],
     "exclude": [
@@ -25,12 +25,12 @@
       "index.ts"
     ],
     "excludeExternals": true,
-    "excludeNotExported": true,
+    "excludeNotDocumented": true,
     "excludePrivate": true,
     "excludeProtected": true,
-    "includeDeclarations": true,
+    "includeVersion": true,
     "hideBreadcrumbs": true,
-    "hideSources": true,
+    "disableSources": true,
     "theme": "docusaurus2"
   }
 }
