@@ -223,15 +223,15 @@ const App = () => {
     <Window>
       <GridView
         style="flex: 1"
-        columnProps={{
+        columnProps={%row%}{{
           0: {
             minWidth: 200,
           },
           1: {
             minWidth: 300,
           },
-        }}
-        rowProps={{
+        }}{%endrow%}
+        rowProps={%row%}{{
           0: {
             stretch: rowStretch ? 2 : undefined,
             minHeight: 400,
@@ -239,7 +239,7 @@ const App = () => {
           1: {
             stretch: !rowStretch ? 2 : undefined,
           },
-        }}
+        }}{%endrow%}
       >
         <GridRow>
           <GridColumn width={2}>
