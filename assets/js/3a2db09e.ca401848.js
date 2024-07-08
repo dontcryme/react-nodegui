@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkreact_nodegui=self.webpackChunkreact_nodegui||[]).push([[8121],{8070:e=>{e.exports=JSON.parse('{"tags":[{"label":"nodegui","permalink":"/blog/tags/nodegui","count":1},{"label":"hello","permalink":"/blog/tags/hello","count":1}]}')}}]);
