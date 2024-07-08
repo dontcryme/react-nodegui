@@ -77,10 +77,8 @@ module.exports = {
       ],
       copyright: `Copyright © ${new Date().getFullYear()} NodeGui`,
     },
-    googleAnalytics: {
-      trackingID: "UA-145065218-2",
-    },
     algolia: {
+      appId: "none_6ab12d669678aeba3bdf10b89f0c8db3",
       apiKey: "6ab12d669678aeba3bdf10b89f0c8db3",
       indexName: "nodegui_react",
       algoliaOptions: {}, // Optional, if provided by Algolia
@@ -95,6 +93,9 @@ module.exports = {
         },
         theme: {
           customCss: require.resolve("./src/css/custom.css"),
+        },
+        googleAnalytics: {
+          trackingID: "UA-145065218-2",
         },
       },
     ],
