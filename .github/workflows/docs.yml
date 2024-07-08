@@ -26,6 +26,7 @@ jobs:
           HostName github.com
           IdentityFile ~/.ssh/id_rsa
           EOT
+          ssh -vT git@github.com
       - name: Update browserslist DB
         run: npx browserslist@latest --update-db
       - name: Release to GitHub Pages
