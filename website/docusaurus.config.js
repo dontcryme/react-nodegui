@@ -4,7 +4,7 @@ module.exports = {
   url: "https://react.nodegui.org",
   baseUrl: "/",
   favicon: "img/favicon.ico",
-  organizationName: "nodegui", // Usually your GitHub org/user name.
+  organizationName: "dontcryme", // Usually your GitHub org/user name.
   projectName: "react-nodegui", // Usually your repo name.
   onBrokenLinks: "warn",
   onDuplicateRoutes: "warn",
@@ -24,7 +24,7 @@ module.exports = {
         },
         { to: "blog", label: "Blog", position: "right" },
         {
-          href: "https://github.com/nodegui/react-nodegui",
+          href: "https://github.com/dontcryme/react-nodegui",
           label: "GitHub",
           position: "right",
         },
