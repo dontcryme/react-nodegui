@@ -8,6 +8,11 @@
     "dist"
   ],
   "author": "Atul R <atulanand94@gmail.com>",
+  "contributors": {
+    "name" : "Dongjin Kim",
+    "email" : "dontcryme@gmail.com",
+    "url" : "https://github.com/dontcryme/"
+  },
   "private": false,
   "license": "MIT",
   "repository": {
